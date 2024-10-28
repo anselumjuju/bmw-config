@@ -8,7 +8,7 @@ import './App.css';
 export function App() {
   const [perfSucks, degrade] = useState(false)
   return (
-    <div className='w-full h-dvh max-h-screen relative overflow-hidden'>
+    <div className='w-full h-dvh max-h-screen overflow-hidden'>
       <Canvas
         shadows
         dpr={[1, perfSucks ? 1.5 : 2]}
@@ -17,7 +17,7 @@ export function App() {
         <PerformanceMonitor onDecline={() => degrade(true)} />
         <color attach="background" args={['#f0f0f0']} />
         <Html position={[0, 0, 0]} center>
-          <Overlay />
+          <div className='w-full relative'> <Overlay /></div>
         </Html>
         <Experience perfSucks={perfSucks} />
       </Canvas>

@@ -5,7 +5,7 @@ import Env from './Env';
 const Experience = ({ perfSucks }: { perfSucks: boolean }) => {
 	return (
 		<>
-			<PresentationControls global polar={[0, 0]} azimuth={[-Math.PI / 1.5, Math.PI / 1.5]} snap={{ mass: 1, tension: 100 }}>
+			<PresentationControls global polar={[0, 0]} azimuth={[-Math.PI / 1.5, Math.PI / 1.5]} snap={{ mass: 1, tension: 100 }} cursor={false}>
 				<group position={[0, -0.5, 0]} rotation={[0, -0.75, 0]}>
 					<M4 />
 					<AccumulativeShadows frames={100} alphaTest={0.2} opacity={0.7} color="white" scale={20} position={[0, 0.03, 0]}>
