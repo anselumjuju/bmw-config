@@ -18,7 +18,7 @@ const Paint = () => {
 			{paintData.map((paint) => (
 				<div
 					key={paint.value}
-					className={`w-[60px] aspect-square rounded-full cursor-pointer transition-all duration-200 p-1 border border-transparent ${selectedColor === paint.value ? 'border-neutral-400 ' : ''}`}
+					className={`w-[60px] aspect-square rounded-full cursor-pointer transition-all duration-200 p-1 border border-transparent ${selectedColor === paint.value ? 'border-neutral-500 ' : ''}`}
 
 					onClick={() => setSelectedColor(paint.value)}
 				>
