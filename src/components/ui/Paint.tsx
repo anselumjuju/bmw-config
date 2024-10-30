@@ -18,7 +18,7 @@ const Paint = () => {
 			{paintData.map((paint) => (
 				<div
 					key={paint}
-					className={`w-[60px] aspect-square rounded-full cursor-pointer transition-all duration-200 p-1 border border-transparent ${selectedColor === paint ? 'border-gray-600 ' : ''}`}
+					className={`w-[60px] aspect-square rounded-full cursor-pointer transition-all duration-200 p-1 border-2 border-transparent ${selectedColor === paint ? 'border-neutral-500 ' : ''}`}
 					onClick={() => handleClick(paint)}
 				>
 					<div className="w-full h-full rounded-full" style={{ backgroundColor: paint }} />

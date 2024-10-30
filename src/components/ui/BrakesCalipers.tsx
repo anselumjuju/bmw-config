@@ -18,7 +18,7 @@ const BrakesCalipers = () => {
 			{brakesCalipersData.map((color) => (
 				<div
 					key={color}
-					className={`w-[90px] aspect-square rounded-full cursor-pointer transition-all duration-200 p-1 border border-transparent ${selectedCaliperColor === color ? 'border-gray-600 ' : ''}`}
+					className={`w-[90px] aspect-square rounded-full cursor-pointer transition-all duration-200 p-1 border-2 border-transparent ${selectedCaliperColor === color ? 'border-neutral-500 ' : ''}`}
 					onClick={() => handleClick(color)}
 				>
 					<div className="w-full h-full rounded-full" style={{ backgroundColor: color }} />
