@@ -14,7 +14,7 @@ const BrakesCalipers = () => {
 			{brakesCalipersData.map((brakesCalipers) => (
 				<img
 					key={brakesCalipers.value}
-					className={`w-[120px] aspect-square rounded-full cursor-pointer transition-all duration-200 p-1 border border-transparent ${selectedColor === brakesCalipers.value ? 'border-neutral-500 ' : ''}`}
+					className={`w-[120px] aspect-square rounded-full cursor-pointer transition-all duration-200 p-1 border border-transparent ${selectedColor === brakesCalipers.value ? 'border-gray-500 ' : ''}`}
 					src={brakesCalipers.image}
 					alt={brakesCalipers.name}
 					onClick={() => setSelectedColor(brakesCalipers.value)}

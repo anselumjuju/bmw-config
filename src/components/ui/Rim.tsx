@@ -14,7 +14,7 @@ const Rim = () => {
 			{rimData.map((rim) => (
 				<img
 					key={rim.value}
-					className={`w-[120px] aspect-square rounded-full cursor-pointer transition-all duration-200 p-1 border border-transparent ${selectedColor === rim.value ? 'border-neutral-500 ' : ''}`}
+					className={`w-[120px] aspect-square rounded-full cursor-pointer transition-all duration-200 p-1 border border-transparent ${selectedColor === rim.value ? 'border-gray-500 ' : ''}`}
 					src={rim.image}
 					alt={rim.name}
 					onClick={() => setSelectedColor(rim.value)}
