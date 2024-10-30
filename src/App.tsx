@@ -8,7 +8,7 @@ import './App.css';
 export function App() {
   const [perfSucks, degrade] = useState(false)
   return (
-    <div className='w-full h-dvh max-h-screen overflow-hidden'>
+    <div className='w-full h-dvh max-h-screen overflow-hidden touch-none'>
       <Canvas
         shadows
         dpr={[1, perfSucks ? 1.5 : 2]}

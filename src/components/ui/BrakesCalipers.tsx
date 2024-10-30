@@ -1,24 +1,28 @@
 import { useState } from "react";
-import brakeCaliper from '/assets/brakeCaliper1.png';
+import { store } from '../../store';
+import { useSnapshot } from "valtio";
 
 const brakesCalipersData = [
-	{ value: 'brakesCalipers1', name: 'Calipers 1', image: brakeCaliper },
-	{ value: 'brakesCalipers2', name: 'Calipers 2', image: brakeCaliper },
-	{ value: 'brakesCalipers3', name: 'Calipers 3', image: brakeCaliper },
+	'#BC0D00', '#0076C1', '#000'
 ]
 
 const BrakesCalipers = () => {
-	const [selectedColor, setSelectedColor] = useState(brakesCalipersData[0].value)
+	const { caliperColor } = useSnapshot(store)
+	const [selectedCaliperColor, setSelectedCaliperColor] = useState(caliperColor)
+	const handleClick = (color: string) => {
+		store.caliperColor = color
+		setSelectedCaliperColor(color)
+	}
 	return (
 		<div className="w-full grid grid-cols-2 gap-4">
-			{brakesCalipersData.map((brakesCalipers) => (
-				<img
-					key={brakesCalipers.value}
-					className={`w-[120px] aspect-square rounded-full cursor-pointer transition-all duration-200 p-1 border border-transparent ${selectedColor === brakesCalipers.value ? 'border-gray-500 ' : ''}`}
-					src={brakesCalipers.image}
-					alt={brakesCalipers.name}
-					onClick={() => setSelectedColor(brakesCalipers.value)}
-				/>
+			{brakesCalipersData.map((color) => (
+				<div
+					key={color}
+					className={`w-[90px] aspect-square rounded-full cursor-pointer transition-all duration-200 p-1 border border-transparent ${selectedCaliperColor === color ? 'border-gray-600 ' : ''}`}
+					onClick={() => handleClick(color)}
+				>
+					<div className="w-full h-full rounded-full" style={{ backgroundColor: color }} />
+				</div>
 			))}
 		</div>
 	)

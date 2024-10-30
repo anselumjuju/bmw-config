@@ -1,11 +1,43 @@
 import { useGLTF } from '@react-three/drei'
 import { GroupProps } from '@react-three/fiber'
 import { Mesh } from 'three'
+import { useSnapshot } from 'valtio'
+import { store } from '../store'
+import TransitionMaterial from '../utils/MeshTransitionMaterial'
 
 export const BMW = (props: GroupProps) => {
   const { nodes, materials } = useGLTF('/models/bmw.glb')
+  const { bodyColor, rim, caliperColor } = useSnapshot(store)
   return (
     <group {...props} dispose={null}>
+      {/* Body */}
+      <mesh castShadow geometry={(nodes.body as Mesh).geometry} >
+        <TransitionMaterial
+          transitionColor={bodyColor}
+          transitionTime={0.4}
+          metalness={0.024}
+          roughness={0.7}
+          clearcoat={1}
+          clearcoatRoughness={0.25}
+        />
+      </mesh>
+      {/* Calipers */}
+      <mesh castShadow geometry={(nodes.calipers as Mesh).geometry}>
+        <TransitionMaterial
+          transitionColor={caliperColor}
+          transitionTime={0.4}
+          metalness={0.5}
+          roughness={0}
+          clearcoat={1}
+          clearcoatRoughness={0.25}
+        />
+      </mesh>
+      {/* Rims */}
+      <group>
+        <mesh castShadow geometry={(nodes.TSR_X_RIM003002 as Mesh).geometry} material={materials.rimShield} visible={rim == 'rim1'} />
+        <mesh castShadow geometry={(nodes.rim3 as Mesh).geometry} material={materials.rimShield} visible={rim == 'rim2'} />
+        <mesh castShadow geometry={(nodes.rim2 as Mesh).geometry} material={materials.rimShield} visible={rim == 'rim3'} />
+      </group>
       <mesh castShadow geometry={(nodes.window as Mesh).geometry} >
         <meshPhysicalMaterial
           transmission={0.9}
@@ -18,16 +50,6 @@ export const BMW = (props: GroupProps) => {
           color="#888"
         />
       </mesh>
-      {/* Body */}
-      <mesh castShadow geometry={(nodes.body as Mesh).geometry} material={materials.body} />
-      {/* Calipers */}
-      <mesh castShadow geometry={(nodes.calipers as Mesh).geometry} material={materials.calipers} />
-      {/* Rims */}
-      <group>
-        <mesh castShadow geometry={(nodes.TSR_X_RIM003002 as Mesh).geometry} material={materials.rimShield} visible={false} />
-        <mesh castShadow geometry={(nodes.rim3 as Mesh).geometry} material={materials.rimShield} visible={false} />
-        <mesh castShadow geometry={(nodes.rim2 as Mesh).geometry} material={materials.rimShield} />
-      </group>
       <mesh castShadow geometry={(nodes.tyre as Mesh).geometry} material={materials.tyre} />
       <mesh castShadow geometry={(nodes.carbonFiber as Mesh).geometry} material={materials.carbon} />
       <mesh castShadow geometry={(nodes.mudGuard as Mesh).geometry} material={materials.Black} />

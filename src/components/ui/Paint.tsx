@@ -1,27 +1,27 @@
 import { useState } from "react";
+import { store } from '../../store';
+import { useSnapshot } from "valtio";
 
 const paintData = [
-	{ value: 'red', name: 'Red', color: 'red' },
-	{ value: 'blue', name: 'Blue', color: 'blue' },
-	{ value: 'green', name: 'Green', color: 'green' },
-	{ value: 'yellow', name: 'Yellow', color: 'yellow' },
-	{ value: 'purple', name: 'Purple', color: 'purple' },
-	{ value: 'orange', name: 'Orange', color: 'orange' },
-	{ value: 'pink', name: 'Pink', color: 'pink' },
-	{ value: 'brown', name: 'Brown', color: 'brown' },
+	'white', '#BCBCBC', '#BBC9E0', '#BBE0C2', '#222', '#4A4A4A', '#3F0001'
 ]
 
 const Paint = () => {
-	const [selectedColor, setSelectedColor] = useState(paintData[0].value)
+	const { bodyColor } = useSnapshot(store)
+	const [selectedColor, setSelectedColor] = useState<string>(bodyColor)
+	const handleClick = (color: string) => {
+		store.bodyColor = color
+		setSelectedColor(color)
+	}
 	return (
 		<div className="w-full grid grid-cols-4 gap-4">
 			{paintData.map((paint) => (
 				<div
-					key={paint.value}
-					className={`w-[60px] aspect-square rounded-full cursor-pointer transition-all duration-200 p-1 border border-transparent ${selectedColor === paint.value ? 'border-gray-500 ' : ''}`}
-					onClick={() => setSelectedColor(paint.value)}
+					key={paint}
+					className={`w-[60px] aspect-square rounded-full cursor-pointer transition-all duration-200 p-1 border border-transparent ${selectedColor === paint ? 'border-gray-600 ' : ''}`}
+					onClick={() => handleClick(paint)}
 				>
-					<div className="w-full h-full rounded-full" style={{ backgroundColor: paint.color }} />
+					<div className="w-full h-full rounded-full" style={{ backgroundColor: paint }} />
 				</div>
 			))}
 		</div>

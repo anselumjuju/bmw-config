@@ -5487,6 +5487,11 @@ property-graph@^2.0.0:
   resolved "https://registry.yarnpkg.com/property-graph/-/property-graph-2.0.0.tgz#aaf79cdd5fd05171c1d34c41367acdaac3cbac61"
   integrity sha512-peDswWfLn7Lx+iPIxefhEUbLC7cs1KbfyKqOl5C5TF5F6urnyAORxzQ7JY21yjRzH7CpLa6+d1G+BemBr/lKyw==
 
+proxy-compare@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/proxy-compare/-/proxy-compare-3.0.0.tgz#d99d719393c2fa1f1f29e4ba9e120b46bbcbc1fc"
+  integrity sha512-y44MCkgtZUCT9tZGuE278fB7PWVf7fRYy0vbRXAts2o5F0EfC4fIQrvQQGBJo1WJbFcVLXzApOscyJuZqHQc1w==
+
 psl@^1.1.33:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/psl/-/psl-1.9.0.tgz#d0df2a137f00794565fcaf3b2c00cd09f8d5a5a7"
@@ -6405,6 +6410,13 @@ validate-npm-package-license@^3.0.4:
   dependencies:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
+
+valtio@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/valtio/-/valtio-2.1.1.tgz#78f519bfb3d781985c1050998d97a72e12381391"
+  integrity sha512-ut7ztzMp3HyDsdAy3xFMKnSAhfwU/jq0WhBehyzXT1URB1ZikhK7XTHQn7JruhLByybvYkh5bFnD4YoKXTlfjw==
+  dependencies:
+    proxy-compare "^3.0.0"
 
 vite@^5.4.9:
   version "5.4.10"
