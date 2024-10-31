@@ -19,9 +19,9 @@ const Rim = () => {
 		setSelectedRim(rim)
 	}
 	return (
-		<div className="w-full grid grid-cols-2 gap-4">
+		<div className="w-full grid grid-cols-4 md:grid-cols-2 gap-2 md:gap-4">
 			{rimData.map((rim) => (
-				<div className={`w-[120px] aspect-square p-2 rounded-full cursor-pointer transition-all duration-200 border-2 border-transparent ${selectedRim === rim.value ? 'border-neutral-500 ' : ''}`}>
+				<div className={`w-[80px] md:w-[120px] aspect-square p-2 rounded-full cursor-pointer transition-all duration-200 border-2 border-transparent ${selectedRim === rim.value ? 'border-neutral-600 ' : ''}`}>
 					<img
 						key={rim.value}
 						className={`w-full`}

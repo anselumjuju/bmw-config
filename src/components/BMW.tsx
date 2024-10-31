@@ -40,14 +40,14 @@ export const BMW = (props: GroupProps) => {
       </group>
       <mesh castShadow geometry={(nodes.window as Mesh).geometry} >
         <meshPhysicalMaterial
-          transmission={0.9}
-          opacity={0.7}
+          transmission={0.5}
+          opacity={0.8}
           transparent={true}
-          roughness={0}
+          roughness={1}
           metalness={0}
           envMapIntensity={1}
           clearcoat={0.1}
-          color="#888"
+          color="#333"
         />
       </mesh>
       <mesh castShadow geometry={(nodes.tyre as Mesh).geometry} material={materials.tyre} />

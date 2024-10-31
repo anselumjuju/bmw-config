@@ -14,11 +14,11 @@ const Paint = () => {
 		setSelectedColor(color)
 	}
 	return (
-		<div className="w-full grid grid-cols-4 gap-4">
+		<div className="w-full grid grid-cols-6 md:grid-cols-4 gap-2 md:gap-4">
 			{paintData.map((paint) => (
 				<div
 					key={paint}
-					className={`w-[60px] aspect-square rounded-full cursor-pointer transition-all duration-200 p-1 border-2 border-transparent ${selectedColor === paint ? 'border-neutral-500 ' : ''}`}
+					className={`w-[60px] aspect-square rounded-full cursor-pointer transition-all duration-200 p-1 border-2 border-white/0 ${selectedColor === paint ? 'border-neutral-600' : ''}`}
 					onClick={() => handleClick(paint)}
 				>
 					<div className="w-full h-full rounded-full" style={{ backgroundColor: paint }} />
