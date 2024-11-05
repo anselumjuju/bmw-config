@@ -4,6 +4,7 @@ import { TiArrowBackOutline } from "react-icons/ti";
 import Paint from "./ui/Paint";
 import Rim from "./ui/Rim";
 import BrakesCalipers from "./ui/BrakesCalipers";
+import { takeScreenshot } from "../utils/functions";
 
 function Config({ onGoHome }: { onGoHome: () => void }) {
 	return (
@@ -11,7 +12,7 @@ function Config({ onGoHome }: { onGoHome: () => void }) {
 
 			<div className="w-full md:h-full flex md:flex-col items-center md:items-start justify-between">
 				<div className="p-3 rounded-full grid place-content-center bg-white/30 text-2xl text-neutral-500 cursor-pointer hover:scale-110 transition-all duration-200" onClick={onGoHome}><TiArrowBackOutline /></div>
-				<div className="p-3 rounded-full grid place-content-center bg-white/30 text-2xl text-neutral-500 cursor-pointer hover:scale-110 transition-all duration-200"><BiDownload /></div>
+				<div className="p-3 rounded-full grid place-content-center bg-white/30 text-2xl text-neutral-500 cursor-pointer hover:scale-110 transition-all duration-200" onClick={takeScreenshot}><BiDownload /></div>
 			</div>
 
 			<div className="w-full md:max-w-sm h-full px-6 py-4 rounded-lg bg-white/20 backdrop-blur-lg hidden md:block">
