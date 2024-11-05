@@ -10,6 +10,7 @@ export function App() {
   return (
     <div className='w-full h-dvh max-h-screen overflow-hidden touch-none'>
       <Canvas
+        gl={{ preserveDrawingBuffer: true }}
         shadows
         dpr={[1, perfSucks ? 1.5 : 2]}
         eventPrefix="client"
