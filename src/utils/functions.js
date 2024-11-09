@@ -23,11 +23,15 @@ export const openShare = async () => {
 
 const resend = new Resend(import.meta.env.VITE_RESEND_API);
 
-export const sendEmail = ({ from, subject, message }) => {
-	resend.emails.send({
-		from: from,
-		to: 'anselumjuju@gmail.com',
-		subject: subject,
+export const sendEmail = async ({ email, name, message }) => {
+	const { data, error } = await resend.emails.send({
+		from: email,
+		to: ['anselumjuju@gmail.com'],
+		subject: `${name} Reached Out via BMW Config`,
 		html: `<p>${message}</p>`
 	})
+	if (error) return console.log(error);
+	console.log(data);
 }
+
+

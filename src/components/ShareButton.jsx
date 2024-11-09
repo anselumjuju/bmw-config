@@ -1,9 +1,20 @@
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Input, Textarea } from "@nextui-org/react";
+import { useState } from "react";
+import { toast } from "react-toastify";
+import { sendEmail } from "../utils/functions";
 
 const ShareButton = ({ isOpen, onOpenChange }) => {
+	const [emailDetails, setEmailDetails] = useState({});
 
 	const handleSubmit = (onClose) => {
-		console.log("Submitted");
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+		if (!emailDetails.name || !emailDetails.email || !emailDetails.message || !emailRegex.test(emailDetails.email)) {
+			toast.error('Please provide valid informations.');
+			return;
+		}
+		sendEmail(emailDetails);
+		toast.success('Email sent successfully.');
 		onClose();
 	}
 
@@ -22,19 +33,29 @@ const ShareButton = ({ isOpen, onOpenChange }) => {
 								<Input
 									autoFocus
 									label="Name"
+									isRequired
 									variant="bordered"
 									radius="sm"
+									defaultValue={emailDetails.name}
+									onValueChange={(e) => setEmailDetails({ ...emailDetails, name: e })}
 								/>
 								<Input
 									label="Email"
+									type="email"
+									isRequired
 									variant="bordered"
 									radius="sm"
+									defaultValue={emailDetails.email}
+									onValueChange={(e) => setEmailDetails({ ...emailDetails, email: e })}
 								/>
 								<Textarea
 									label="Message"
 									minRows={4}
+									isRequired
 									variant="bordered"
 									radius="sm"
+									defaultValue={emailDetails.message}
+									onValueChange={(e) => setEmailDetails({ ...emailDetails, message: e })}
 								/>
 							</ModalBody>
 							<ModalFooter>
