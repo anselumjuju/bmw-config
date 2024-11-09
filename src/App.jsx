@@ -8,7 +8,8 @@ import './App.css';
 export function App() {
   const [perfSucks, degrade] = useState(false)
   return (
-    <div className='w-full h-dvh max-h-screen'>
+    <div className='w-full h-dvh max-h-screen bg-[#e8cdce]'>
+      <div className='w-full h-full overflow-hidden absolute inset-0 z-10'><Overlay /></div>
       <Canvas
         gl={{ preserveDrawingBuffer: true }}
         shadows
@@ -19,7 +20,6 @@ export function App() {
         <color attach="background" args={['#f0f0f0']} />
         <Experience perfSucks={perfSucks} />
       </Canvas>
-      <div className='w-full h-full overflow-hidden absolute inset-0'><Overlay /></div>
     </div>
   );
 }
