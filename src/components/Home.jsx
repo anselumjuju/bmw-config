@@ -1,14 +1,15 @@
-import { useState } from "react";
 import { BiDownload } from "react-icons/bi";
 import { FiShare2 } from "react-icons/fi";
 import { GoMail } from "react-icons/go";
 import { LuMoveRight } from "react-icons/lu";
 import { openShare, takeScreenshot } from "../utils/functions";
+import ShareButton from "./ShareButton";
+import { useDisclosure } from "@nextui-org/react";
 
 
 function Home({ onConfigure }) {
-	const [isEmailModal, setIsEmailModal] = useState(false);
-	const toogleEmailModal = () => setIsEmailModal(!isEmailModal);
+	const { isOpen, onOpen, onOpenChange } = useDisclosure();
+	const toogleEmailModal = () => onOpen();
 
 	return (
 		<div className="w-[90%] h-full mx-auto py-[5vh] flex items-center justify-between flex-col">
@@ -18,12 +19,17 @@ function Home({ onConfigure }) {
 					<p>BMW<span className="font-light text-2xl md:text-3xl text-nowrap ml-1">M4 CSL</span></p>
 					<p className="text-sm md:text-lg font-light text-neutral-500">Race inspired unique design</p>
 				</div>
-				<div
+				<ShareButton
+					isOpen={isOpen}
+					onOpenChange={onOpenChange}
+					onClose={() => onOpenChange(false)}
+				/>
+				<button
 					className="hidden md:block text-base bg-neutral-800 text-white py-3 px-8 rounded-lg cursor-pointer *:text-nowrap font-normal hover:bg-neutral-700 transition-all duration-200"
 					onClick={toogleEmailModal}
 				>
 					<p>Get in touch</p>
-				</div>
+				</button>
 			</div>
 
 			<div className="w-full flex items-end justify-between">
