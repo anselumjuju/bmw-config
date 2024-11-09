@@ -9,6 +9,7 @@ import { openShare, takeScreenshot } from "../utils/functions";
 function Home({ onConfigure }) {
 	const [isEmailModal, setIsEmailModal] = useState(false);
 	const toogleEmailModal = () => setIsEmailModal(!isEmailModal);
+
 	return (
 		<div className="w-[90%] h-full mx-auto py-[5vh] flex items-center justify-between flex-col">
 

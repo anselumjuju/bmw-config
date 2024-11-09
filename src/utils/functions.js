@@ -11,15 +11,12 @@ export const openShare = async () => {
 	if (navigator.share) {
 		try {
 			await navigator.share({
-				title: 'Check out this project!',
-				text: 'Have a look at this project I created!',
-				url: window.location.href,
+				title: 'BMW Configurator',
+				url: 'https://bmw-config.vercel.app/',
 			});
-		} catch (error) {
-			console.error('Error sharing:', error);
+		} catch (err) {
+			console.log(err);
 		}
-	} else {
-		alert('Share feature is not supported in your browser.');
 	}
 };
 
