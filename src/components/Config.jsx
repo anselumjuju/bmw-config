@@ -29,7 +29,7 @@ function Config({ onGoHome }) {
 				</Accordion>
 			</div>
 
-			<div className="block md:hidden w-full h-[20vh] px-6 py-4 rounded-lg bg-white/20 backdrop-blur-lg pointer-events-auto">
+			<div className="block md:hidden w-full min-h-[20vh] px-6 py-4 rounded-lg bg-white/20 backdrop-blur-lg pointer-events-auto">
 				<Tabs aria-label="Dynamic tabs" variant="underlined">
 					<Tab title={'Paint'}>
 						<Paint />

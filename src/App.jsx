@@ -1,27 +1,27 @@
-import { useState } from 'react';
 import { Canvas } from '@react-three/fiber'
-import { PerformanceMonitor } from '@react-three/drei'
-import { Experience, Overlay } from './containers';
+import { AccumulativeShadows, Center, Environment, OrbitControls, RandomizedLight } from '@react-three/drei'
+import { Overlay } from './containers';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
+import { BMW } from './components';
 
 
 const App = () => {
-  const [perfSucks, degrade] = useState(false)
-  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
   return (
     <>
-      <div className='w-full h-dvh max-h-screen bg-[#fad0cf]'>
-        <Canvas
-          gl={{ preserveDrawingBuffer: true }}
-          shadows={isMobile ? false : true}
-          dpr={[1, isMobile ? 1 : 2]}
-          eventPrefix="client"
-          camera={{ position: [20, 0.9, 20], fov: isMobile ? 30 : 26 }}>
-          <PerformanceMonitor onDecline={() => degrade(true)} onIncline={() => degrade(false)} />
-          <color attach="background" args={['#fad0cf']} />
-          <Experience perfSucks={perfSucks} />
+      <div className='w-full h-dvh max-h-screen bg-[#b7a8ca]'>
+        <Canvas gl={{ antialias: false, preserveDrawingBuffer: true }} shadows camera={{ position: [4, 0, 6], fov: 35 }}>
+          <group position={[0, -0.75, 0]}>
+            <Center top>
+              <BMW />
+            </Center>
+            <AccumulativeShadows>
+              <RandomizedLight position={[2, 5, 5]} />
+            </AccumulativeShadows>
+          </group>
+          <OrbitControls makeDefault minPolarAngle={0} maxPolarAngle={Math.PI / 2} autoRotate autoRotateSpeed={-0.5} />
+          <Environment preset="dawn" background backgroundBlurriness={9} />
         </Canvas>
         <div className='w-full h-dvh overflow-hidden absolute inset-0 pointer-events-none'><Overlay /></div>
       </div>
