@@ -12,7 +12,7 @@ function Home({ onConfigure }) {
 	const toogleEmailModal = () => onOpen();
 
 	return (
-		<div className="w-[90%] h-full mx-auto py-[5vh] flex items-center justify-between flex-col">
+		<div className="w-[90%] h-full mx-auto py-[5vh] flex items-center justify-between flex-col *:pointer-events-auto">
 
 			<div className="w-full flex items-center justify-between font-medium">
 				<div className="space-y-1 text-4xl md:text-6xl">

@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { easing } from 'maath'
 
-export default function TransitionMaterialFree(props) {
+const TransitionMaterial = (props) => {
 	const materialRef = useRef()
 
 	useFrame((_, delta) =>
@@ -16,3 +16,5 @@ export default function TransitionMaterialFree(props) {
 
 	return <meshPhysicalMaterial ref={materialRef} {...props} />
 }
+
+export default TransitionMaterial

@@ -10,12 +10,12 @@ function Config({ onGoHome }) {
 	return (
 		<div className="w-[90%] h-full mx-auto py-[5vh] flex items-center justify-between flex-col md:flex-row">
 
-			<div className="w-full md:h-full flex md:flex-col items-center md:items-start justify-between">
+			<div className="w-full md:h-full flex md:flex-col items-center md:items-start justify-between *:pointer-events-auto">
 				<div className="p-3 rounded-full grid place-content-center bg-white/30 text-2xl text-neutral-500 cursor-pointer hover:scale-110 transition-all duration-200" onClick={onGoHome}><TiArrowBackOutline /></div>
 				<div className="p-3 rounded-full grid place-content-center bg-white/30 text-2xl text-neutral-500 cursor-pointer hover:scale-110 transition-all duration-200" onClick={takeScreenshot}><BiDownload /></div>
 			</div>
 
-			<div className="w-full md:max-w-sm h-full px-6 py-4 rounded-lg bg-white/20 backdrop-blur-lg hidden md:block">
+			<div className="w-full md:max-w-sm h-full px-6 py-4 rounded-lg bg-white/20 backdrop-blur-lg hidden md:block pointer-events-auto">
 				<Accordion selectionMode="single" defaultExpandedKeys={["1"]}>
 					<AccordionItem key="1" aria-label="Accordion 1" title="Paints">
 						<Paint />
@@ -29,7 +29,7 @@ function Config({ onGoHome }) {
 				</Accordion>
 			</div>
 
-			<div className="block md:hidden w-full h-[20vh] px-6 py-4 rounded-lg bg-white/20 backdrop-blur-lg">
+			<div className="block md:hidden w-full h-[20vh] px-6 py-4 rounded-lg bg-white/20 backdrop-blur-lg pointer-events-auto">
 				<Tabs aria-label="Dynamic tabs" variant="underlined">
 					<Tab title={'Paint'}>
 						<Paint />
