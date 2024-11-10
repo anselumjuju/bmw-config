@@ -30,8 +30,8 @@ export const sendEmail = async ({ email, name, message }) => {
 		subject: `${name} Reached Out via BMW Config`,
 		html: `<p>${message}</p>`
 	})
-	if (error) return console.log(error);
-	console.log(data);
+	if (data) return data;
+	if (error) throw new Error(error);
 }
 
 

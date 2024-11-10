@@ -1,7 +1,6 @@
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Input, Textarea } from "@nextui-org/react";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import { sendEmail } from "../utils/functions";
 
 const ShareButton = ({ isOpen, onOpenChange }) => {
 	const [emailDetails, setEmailDetails] = useState({});
@@ -13,8 +12,8 @@ const ShareButton = ({ isOpen, onOpenChange }) => {
 			toast.error('Please provide valid informations.');
 			return;
 		}
-		sendEmail(emailDetails);
-		toast.success('Email sent successfully.');
+		toast.error('Error sending email..');
+		setEmailDetails({})
 		onClose();
 	}
 
