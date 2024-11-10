@@ -4,11 +4,11 @@ const Rim2 = (props) => {
   const { nodes, materials } = useGLTF('/models/rim2.glb')
   return (
     <group {...props} dispose={null}>
-      <mesh castShadow geometry={nodes.rim2.geometry} material={materials.rimShield} />
+      <mesh geometry={nodes.rim2.geometry} material={materials.rimShield} position={[0.001, 0.362, -0.063]} scale={1.61} />
     </group>
   )
 }
 
-useGLTF.preload('/models/rim2.glb')
+useGLTF.preload('/rim2.glb')
 
 export default Rim2

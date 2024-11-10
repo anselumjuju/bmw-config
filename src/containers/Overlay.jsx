@@ -24,7 +24,7 @@ function Overlay() {
 	}, [showConfig]);
 
 	return (
-		<div className="w-dvw h-screen select-none max-w-[1800px] mx-auto">
+		<div className="w-dvw h-full select-none max-w-[1800px] mx-auto">
 			<div className='w-full h-full' ref={homeRef} style={{ display: showConfig ? 'none' : 'block' }}>
 				<Home onConfigure={handleConfigure} />
 			</div>
