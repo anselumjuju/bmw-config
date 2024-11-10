@@ -1,12 +1,13 @@
 import { useGLTF } from '@react-three/drei'
 import TransitionMaterial from '../../utils/TransitionMaterial'
+import * as THREE from 'three'
 
 
 const Body = (props) => {
   const { nodes } = useGLTF('/models/body.glb')
   return (
     <group {...props} dispose={null}>
-      <mesh castShadow geometry={nodes.body.geometry}>
+      <mesh geometry={nodes.body.geometry}>
         <TransitionMaterial
           transitionColor={props.bodyColor}
           transitionTime={0.4}
@@ -14,6 +15,7 @@ const Body = (props) => {
           roughness={0.3}
           clearcoat={1}
           clearcoatRoughness={0.25}
+          side={THREE.DoubleSide}
         />
       </mesh>
     </group>

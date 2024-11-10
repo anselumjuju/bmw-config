@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { Body, Calipers, Interior, Glasses, Rim1, Rim2, Rim3 } from "./models"
 import { useSnapshot } from 'valtio'
 import { store } from '../store'
