@@ -5,7 +5,7 @@ const Body = (props) => {
   const { nodes } = useGLTF('/models/body.glb')
   return (
     <group {...props} dispose={null}>
-      <mesh castShadow geometry={nodes.body.geometry} position={[0.001, 0.776, -0.16]} scale={2.258}>
+      <mesh geometry={nodes.body.geometry}>
         <TransitionMaterial
           transitionColor={props.bodyColor}
           transitionTime={0.4}
@@ -19,6 +19,6 @@ const Body = (props) => {
   )
 }
 
-useGLTF.preload('/body.glb')
+useGLTF.preload('/models/body.glb')
 
 export default Body

@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import { Body, Calipers, Interior, Glasses, Rim1, Rim2, Rim3, Logo } from "./models"
+import { Body, Calipers, Rim1, Rim2, Rim3, BrakeDisc, Exhaust, Frame, HeadlightGlasses, Logos, Window, UnderTray, Tyre, TailLights, ExhaustCover, Headlights, NumberPlate } from "./models"
 import { useSnapshot } from 'valtio'
 import { store } from '../store'
 
@@ -8,13 +8,22 @@ const BMW = () => {
 	return (
 		<group position={[0.5, 0, 0]}>
 			<Body bodyColor={bodyColor} />
+			<BrakeDisc />
 			<Calipers caliperColor={caliperColor} />
-			<Interior />
-			<Logo />
-			<Glasses />
+			<Exhaust />
+			<ExhaustCover />
+			<Frame />
+			<HeadlightGlasses />
+			<Headlights />
+			<Logos />
+			<NumberPlate />
 			<group visible={rim === 'rim1'}><Rim1 /></group>
 			<group visible={rim === 'rim2'}><Rim2 /></group>
 			<group visible={rim === 'rim3'}><Rim3 /></group>
+			<TailLights />
+			<Tyre />
+			{/* <UnderTray /> */}
+			<Window />
 		</group>
 	)
 }
