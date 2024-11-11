@@ -22,7 +22,7 @@ const BMW = () => {
 			<group visible={rim === 'rim3'}><Rim3 /></group>
 			<TailLights />
 			<Tyre />
-			{/* <UnderTray /> */}
+			<UnderTray />
 			<Window />
 		</group>
 	)
