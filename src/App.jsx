@@ -6,32 +6,33 @@ import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import { BMW } from './components';
 import { Suspense } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const App = () => {
   return (
     <>
-      <>
+      <Helmet>
         <title>BMW Config - Customize Your BMW</title>
 
         <meta name="description" content="Customize your BMW with BMW Config, choosing from a range of colors, trims, and features for your perfect BMW." />
-        <meta property="description" content="Customize your BMW with BMW Config, choosing from a range of colors, trims, and features for your perfect BMW." />
 
         <meta property="og:title" content="BMW Config" />
         <meta property="og:description" content="Customize your BMW with BMW Config, choosing from a range of colors, trims, and features for your perfect BMW." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://bmw-config.vercel.app/" />
-        <meta property="og:site_name" content="https://bmw-config.vercel.app/" />
+        <meta property="og:site_name" content="BMW Config" />
         <meta property="og:image" content="https://bmw-config.vercel.app/assets/thumbnail.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
 
-        <meta name="twitter:card" content="https://bmw-config.vercel.app/assets/thumbnail.png" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="BMW Config" />
         <meta name="twitter:description" content="Customize your BMW with BMW Config, choosing from a range of colors, trims, and features for your perfect BMW." />
         <meta name="twitter:image" content="https://bmw-config.vercel.app/assets/thumbnail.png" />
 
         <link rel="canonical" href="https://bmw-config.vercel.app/" />
-      </>
+      </Helmet>
+
       <div className='w-full h-dvh max-h-screen bg-[#b7a8ca]'>
         <Canvas gl={{ antialias: false, preserveDrawingBuffer: true }} shadows camera={{ position: [4, 0, 6], fov: 35 }}>
           <Suspense fallback={null}>
