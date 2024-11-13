@@ -61,10 +61,13 @@ const App = () => {
 
           <OrbitControls
             makeDefault
-            minPolarAngle={0}
+            minPolarAngle={Math.PI / 5}
             maxPolarAngle={Math.PI / 2}
             autoRotate={!isMobile}
-            autoRotateSpeed={isMobile ? -0.1 : -0.15}
+            autoRotateSpeed={isMobile ? -0.2 : -0.3}
+            dampingFactor={0.05}
+            enableZoom={false}
+            enablePan={false}
           />
 
           <Environment
