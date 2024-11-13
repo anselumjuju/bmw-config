@@ -1,7 +1,8 @@
 import { useGLTF } from '@react-three/drei'
+import { useCustomGLTF } from '../../utils/functions'
 
 const BrakeDisc = (props) => {
-  const { nodes, materials } = useGLTF('/models/brakedisc.glb')
+  const { nodes, materials } = useCustomGLTF('/models/brakedisc.glb')
   return (
     <group {...props} dispose={null}>
       <group position={[0.001, 0.362, -0.076]} scale={1.555}>

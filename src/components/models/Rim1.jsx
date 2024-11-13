@@ -1,7 +1,8 @@
 import { useGLTF } from '@react-three/drei'
+import { useCustomGLTF } from '../../utils/functions'
 
 const Rim1 = (props) => {
-  const { nodes, materials } = useGLTF('/models/rim1.glb')
+  const { nodes, materials } = useCustomGLTF('/models/rim1.glb')
   return (
     <group {...props} dispose={null}>
       <mesh geometry={nodes.rim1.geometry} material={materials.rimShield} />

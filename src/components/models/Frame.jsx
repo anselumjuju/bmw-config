@@ -1,7 +1,8 @@
 import { useGLTF } from '@react-three/drei'
+import { useCustomGLTF } from '../../utils/functions'
 
 const Frame = (props) => {
-  const { nodes, materials } = useGLTF('/models/frame.glb')
+  const { nodes, materials } = useCustomGLTF('/models/frame.glb')
   return (
     <group {...props} dispose={null}>
       <group position={[0.001, 0.765, -0.161]} scale={2.271}>

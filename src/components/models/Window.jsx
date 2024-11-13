@@ -1,7 +1,8 @@
 import { useGLTF } from '@react-three/drei'
+import { useCustomGLTF } from '../../utils/functions'
 
 const Window = (props) => {
-  const { nodes } = useGLTF('/models/window.glb')
+  const { nodes } = useCustomGLTF('/models/window.glb')
   return (
     <group {...props} dispose={null}>
       <mesh geometry={nodes.window.geometry} position={[0.001, 1.105, -0.612]} scale={1.3} >

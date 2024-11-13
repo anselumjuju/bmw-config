@@ -1,7 +1,8 @@
 import { useGLTF } from '@react-three/drei'
+import { useCustomGLTF } from '../../utils/functions'
 
 const Headlights = (props) => {
-  const { nodes, materials } = useGLTF('/models/headlights.glb')
+  const { nodes, materials } = useCustomGLTF('/models/headlights.glb')
   return (
     <group {...props} dispose={null}>
       <group position={[0.001, 0.66, 1.763]} scale={0.847}>

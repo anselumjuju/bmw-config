@@ -1,8 +1,10 @@
-import { useGLTF } from '@react-three/drei'
-import TransitionMaterial from '../../utils/TransitionMaterial'
+import { useGLTF } from '@react-three/drei';
+import TransitionMaterial from '../../utils/TransitionMaterial';
+import { useCustomGLTF } from '../../utils/functions';
 
 const Body = (props) => {
-  const { nodes } = useGLTF('/models/body.glb')
+  const { nodes } = useCustomGLTF('/models/body.glb');
+
   return (
     <group {...props} dispose={null}>
       <mesh geometry={nodes.body.geometry}>
@@ -16,9 +18,9 @@ const Body = (props) => {
         />
       </mesh>
     </group>
-  )
-}
+  );
+};
 
-useGLTF.preload('/models/body.glb')
+useGLTF.preload('/models/body.glb');
 
-export default Body
+export default Body;

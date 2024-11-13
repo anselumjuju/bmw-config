@@ -34,4 +34,18 @@ export const sendEmail = async ({ email, name, message }) => {
 	if (error) throw new Error(error);
 }
 
+import { useGLTF } from '@react-three/drei';
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
+import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js';
 
+export const useCustomGLTF = (url) => {
+	const dracoLoader = new DRACOLoader();
+	dracoLoader.setDecoderPath('./draco-files/');
+
+	const gltf = useGLTF(url, true, {
+		dracoLoader: dracoLoader,
+		meshoptDecoder: MeshoptDecoder
+	});
+
+	return gltf;
+};
