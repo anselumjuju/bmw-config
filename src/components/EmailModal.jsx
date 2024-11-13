@@ -1,8 +1,9 @@
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Input, Textarea } from "@nextui-org/react";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import PrimaryButton from "./ui/PrimaryButton";
 
-const ShareButton = ({ isOpen, onOpenChange }) => {
+const EmailModal = ({ isOpen, onOpenChange }) => {
 	const [emailDetails, setEmailDetails] = useState({});
 
 	const handleSubmit = (onClose) => {
@@ -58,12 +59,7 @@ const ShareButton = ({ isOpen, onOpenChange }) => {
 								/>
 							</ModalBody>
 							<ModalFooter>
-								<button
-									className="text-sm bg-neutral-800 text-white py-2 px-6 rounded-lg hover:bg-neutral-700 transition-all duration-200"
-									onClick={() => handleSubmit(onClose)}
-								>
-									Submit
-								</button>
+								<PrimaryButton text={'Submit'} onClick={() => handleSubmit(onClose)} className={'py-0'} />
 							</ModalFooter>
 						</>
 					)}
@@ -73,4 +69,4 @@ const ShareButton = ({ isOpen, onOpenChange }) => {
 	);
 }
 
-export default ShareButton
+export default EmailModal

@@ -5,14 +5,15 @@ import Paint from "./ui/Paint";
 import Rim from "./ui/Rim";
 import BrakesCalipers from "./ui/BrakesCalipers";
 import { takeScreenshot } from "../utils/functions";
+import Icons from "./ui/Icons";
 
 function Config({ onGoHome }) {
 	return (
 		<div className="w-[90%] h-full mx-auto py-[5vh] flex items-center justify-between flex-col md:flex-row">
 
 			<div className="w-full md:h-full flex md:flex-col items-center md:items-start justify-between *:pointer-events-auto">
-				<div className="p-3 rounded-full grid place-content-center bg-white/30 text-2xl text-neutral-500 cursor-pointer hover:scale-110 transition-all duration-200" onClick={onGoHome}><TiArrowBackOutline /></div>
-				<div className="p-3 rounded-full grid place-content-center bg-white/30 text-2xl text-neutral-500 cursor-pointer hover:scale-110 transition-all duration-200" onClick={takeScreenshot}><BiDownload /></div>
+				<Icons icon={<TiArrowBackOutline />} onClick={onGoHome} />
+				<Icons icon={<BiDownload />} onClick={takeScreenshot} />
 			</div>
 
 			<div className="w-full md:max-w-sm h-full px-6 py-4 rounded-lg bg-white/20 backdrop-blur-lg hidden md:block pointer-events-auto">

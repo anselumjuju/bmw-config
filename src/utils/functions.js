@@ -1,5 +1,10 @@
 import { Resend } from 'resend';
 
+export function cn(...classes) {
+	return classes.filter(Boolean).join(' ');
+}
+
+
 export const takeScreenshot = () => {
 	const link = document.createElement('a')
 	link.setAttribute('download', 'canvas.png')

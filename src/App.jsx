@@ -1,14 +1,19 @@
 import { Canvas } from '@react-three/fiber'
-import { AccumulativeShadows, Center, Environment, OrbitControls, RandomizedLight } from '@react-three/drei'
+import { AccumulativeShadows, Center, Environment, OrbitControls, RandomizedLight, Html } from '@react-three/drei'
 import { Overlay } from './containers';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import { BMW } from './components';
-import { Suspense } from 'react';
+import { Suspense, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 
+const Loader = () => {
+  return <Html><p className='w-full h-full absolute inset-0 flex items-center justify-center text-black text-2xl font-medium text-center'>Loading...</p></Html>
+}
+
 const App = () => {
+  const isMobile = useMemo(() => /Mobi|Android/i.test(navigator.userAgent), []);
   return (
     <>
       <Helmet>
@@ -34,21 +39,42 @@ const App = () => {
       </Helmet>
 
       <div className='w-full h-dvh max-h-screen bg-[#b7a8ca]'>
-        <Canvas gl={{ antialias: false, preserveDrawingBuffer: true }} shadows camera={{ position: [4, 0, 6], fov: 35 }}>
-          <Suspense fallback={null}>
+        <div className='w-full h-dvh overflow-hidden absolute inset-0 pointer-events-none z-10'><Overlay /></div>
+        <Canvas
+          gl={{ antialias: false, preserveDrawingBuffer: false }}
+          shadows={!isMobile}
+          dpr={[1, 1.5]}
+          camera={{ position: [4, 0, 6], fov: 35 }}
+        >
+          <Suspense fallback={<Loader />}>
             <group position={[0, -0.75, 0]}>
               <Center top>
                 <BMW />
               </Center>
-              <AccumulativeShadows>
-                <RandomizedLight position={[2, 5, 5]} />
-              </AccumulativeShadows>
+              {!isMobile && (
+                <AccumulativeShadows>
+                  <RandomizedLight position={[2, 5, 5]} />
+                </AccumulativeShadows>
+              )}
             </group>
           </Suspense>
-          <OrbitControls makeDefault minPolarAngle={0} maxPolarAngle={Math.PI / 2} autoRotate autoRotateSpeed={-0.15} />
-          <Environment preset="dawn" background backgroundBlurriness={9} />
+
+          <OrbitControls
+            makeDefault
+            minPolarAngle={0}
+            maxPolarAngle={Math.PI / 2}
+            autoRotate={!isMobile}
+            autoRotateSpeed={isMobile ? -0.1 : -0.15}
+          />
+
+          <Environment
+            preset="dawn"
+            background
+            backgroundBlurriness={isMobile ? 0.6 : 0.9}
+            resolution={isMobile ? 256 : 512}
+            lowQuality={isMobile}
+          />
         </Canvas>
-        <div className='w-full h-dvh overflow-hidden absolute inset-0 pointer-events-none'><Overlay /></div>
       </div>
       <ToastContainer
         autoClose={2000}
@@ -57,6 +83,9 @@ const App = () => {
     </>
   );
 }
+
+
+
 
 
 
