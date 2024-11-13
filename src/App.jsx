@@ -5,21 +5,23 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import { BMW } from './components';
-
+import { Suspense } from 'react';
 
 const App = () => {
   return (
     <>
       <div className='w-full h-dvh max-h-screen bg-[#b7a8ca]'>
         <Canvas gl={{ antialias: false, preserveDrawingBuffer: true }} shadows camera={{ position: [4, 0, 6], fov: 35 }}>
-          <group position={[0, -0.75, 0]}>
-            <Center top>
-              <BMW />
-            </Center>
-            <AccumulativeShadows>
-              <RandomizedLight position={[2, 5, 5]} />
-            </AccumulativeShadows>
-          </group>
+          <Suspense fallback={null}>
+            <group position={[0, -0.75, 0]}>
+              <Center top>
+                <BMW />
+              </Center>
+              <AccumulativeShadows>
+                <RandomizedLight position={[2, 5, 5]} />
+              </AccumulativeShadows>
+            </group>
+          </Suspense>
           <OrbitControls makeDefault minPolarAngle={0} maxPolarAngle={Math.PI / 2} autoRotate autoRotateSpeed={-0.5} />
           <Environment preset="dawn" background backgroundBlurriness={9} />
         </Canvas>
