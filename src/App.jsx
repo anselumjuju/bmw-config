@@ -43,7 +43,7 @@ const App = () => {
       <div className='w-full h-dvh max-h-screen bg-[#b7a8ca]'>
         <div className='w-full h-dvh overflow-hidden absolute inset-0 pointer-events-none z-10'><Overlay /></div>
         <Canvas
-          gl={{ antialias: false, preserveDrawingBuffer: false }}
+          gl={{ antialias: false, preserveDrawingBuffer: true }}
           shadows={!isMobile}
           dpr={[1, 1.5]}
           camera={{ position: [4, 0, 6], fov: 35 }}
@@ -53,32 +53,30 @@ const App = () => {
               <Center top>
                 <BMW />
               </Center>
-              {!isMobile && (
-                <AccumulativeShadows
-                  temporal
-                  frames={100}
-                  alphaTest={0.2}
-                  scale={7}
-                  color="#000"
-                >
-                  <RandomizedLight
-                    position={[2, 5, 5]}
-                    intensity={1}
-                    amount={5}
-                    radius={4}
-                    bias={0.001}
-                  />
-                </AccumulativeShadows>
-              )}
+              <AccumulativeShadows
+                temporal
+                frames={100}
+                alphaTest={0.2}
+                scale={7}
+                color="#000"
+              >
+                <RandomizedLight
+                  position={[2, 5, 5]}
+                  intensity={1}
+                  amount={5}
+                  radius={4}
+                  bias={0.001}
+                />
+              </AccumulativeShadows>
             </group>
           </Suspense>
 
           <OrbitControls
             makeDefault
-            minPolarAngle={Math.PI / 5}
+            minPolarAngle={Math.PI / 2.5}
             maxPolarAngle={Math.PI / 2}
             autoRotate={!isMobile}
-            autoRotateSpeed={isMobile ? -0.2 : -0.3}
+            autoRotateSpeed={isMobile ? -0.1 : -0.2}
             dampingFactor={0.05}
             enableZoom={false}
             enablePan={false}

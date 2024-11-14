@@ -2,6 +2,7 @@ import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Input, Textar
 import { useState } from "react";
 import { toast } from "react-toastify";
 import PrimaryButton from "./ui/PrimaryButton";
+import { sendEmail } from "../utils/functions";
 
 const EmailModal = ({ isOpen, onOpenChange }) => {
 	const [emailDetails, setEmailDetails] = useState({});
@@ -13,7 +14,7 @@ const EmailModal = ({ isOpen, onOpenChange }) => {
 			toast.error('Please provide valid informations.');
 			return;
 		}
-		toast.error('Error sending email..');
+		sendEmail(emailDetails);
 		setEmailDetails({})
 		onClose();
 	}
