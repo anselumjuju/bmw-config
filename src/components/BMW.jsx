@@ -13,10 +13,10 @@ const BMW = () => {
 			<Exhaust />
 			<ExhaustCover />
 			<Frame />
+			<NumberPlate />
 			<HeadlightGlasses />
 			<Headlights />
 			<Logos />
-			<NumberPlate />
 			<group visible={rim === 'rim1'}><Rim1 /></group>
 			<group visible={rim === 'rim2'}><Rim2 /></group>
 			<group visible={rim === 'rim3'}><Rim3 /></group>

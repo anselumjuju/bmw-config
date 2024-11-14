@@ -3,7 +3,7 @@ import { store } from '../../store';
 import { useSnapshot } from "valtio";
 
 const paintData = [
-	'white', '#BCBCBC', '#BBC9E0', '#BBE0C2', '#222', '#4A4A4A', '#3F0001'
+	'#fff', '#b01d03', '#b2b2b2', '#abd8ff', '#000000', '#383b42', '#264b82', '#e1d14f'
 ]
 
 const Paint = () => {

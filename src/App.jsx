@@ -7,6 +7,8 @@ import './App.css';
 import { BMW } from './components';
 import { Suspense, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { EffectComposer, Bloom } from '@react-three/postprocessing';
+import { BlendFunction } from 'postprocessing';
 
 const Loader = () => {
   return <Html><p className='w-full h-full absolute inset-0 flex items-center justify-center text-black text-2xl font-medium text-center'>Loading...</p></Html>
@@ -52,8 +54,21 @@ const App = () => {
                 <BMW />
               </Center>
               {!isMobile && (
-                <AccumulativeShadows>
-                  <RandomizedLight position={[2, 5, 5]} />
+                <AccumulativeShadows
+                  temporal
+                  frames={100}
+                  alphaTest={0.2}
+                  scale={7}
+                  color="#000"
+                  opacity={0.7}
+                >
+                  <RandomizedLight
+                    position={[2, 5, 5]}
+                    intensity={1}
+                    amount={5}
+                    radius={4}
+                    bias={0.001}
+                  />
                 </AccumulativeShadows>
               )}
             </group>
@@ -77,6 +92,15 @@ const App = () => {
             resolution={isMobile ? 256 : 512}
             lowQuality={isMobile}
           />
+          {!isMobile &&
+            <EffectComposer>
+              <Bloom
+                intensity={0.05}
+                luminanceThreshold={0.2}
+                luminanceSmoothing={0.9}
+                blendFunction={BlendFunction.ADD}
+              />
+            </EffectComposer>}
         </Canvas>
       </div>
       <ToastContainer

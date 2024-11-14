@@ -3,7 +3,7 @@ import { store } from '../../store';
 import { useSnapshot } from "valtio";
 
 const brakesCalipersData = [
-	'#BC0D00', '#0076C1', '#000', '#eee'
+	'#d42112', '#f39b1e', '#d3cc2b', '#92d0f7'
 ]
 
 const BrakesCalipers = () => {

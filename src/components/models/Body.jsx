@@ -10,9 +10,9 @@ const Body = (props) => {
       <mesh geometry={nodes.body.geometry}>
         <TransitionMaterial
           transitionColor={props.bodyColor}
-          transitionTime={0.4}
-          metalness={0.024}
-          roughness={0.7}
+          transitionTime={0.25}
+          metalness={0.24}
+          roughness={0.4}
           clearcoat={1}
           clearcoatRoughness={0.25}
         />

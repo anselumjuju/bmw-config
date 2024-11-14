@@ -1,7 +1,7 @@
 import { proxy } from 'valtio'
 
 export const store = proxy({
-	bodyColor: 'white',
+	bodyColor: '#fff',
 	rim: "rim1",
-	caliperColor: 'red'
+	caliperColor: '#d42112'
 })
