@@ -11,7 +11,7 @@ import { EffectComposer, Bloom } from '@react-three/postprocessing';
 import { BlendFunction } from 'postprocessing';
 
 const Loader = () => {
-  return <Html><p className='w-full h-full absolute inset-0 flex items-center justify-center text-black text-2xl font-medium text-center'>Loading...</p></Html>
+  return <Html><p className='w-full h-full absolute inset-0 flex items-center justify-center text-white/50 text-xl font-normal text-center'>Loading...</p></Html>
 }
 
 const App = () => {
@@ -53,21 +53,23 @@ const App = () => {
               <Center top>
                 <BMW />
               </Center>
-              <AccumulativeShadows
-                temporal
-                frames={100}
-                alphaTest={0.2}
-                scale={7}
-                color="#000"
-              >
-                <RandomizedLight
-                  position={[2, 5, 5]}
-                  intensity={1}
-                  amount={5}
-                  radius={4}
-                  bias={0.001}
-                />
-              </AccumulativeShadows>
+              {!isMobile &&
+                <AccumulativeShadows
+                  temporal
+                  frames={100}
+                  alphaTest={0.2}
+                  scale={7}
+                  color="#000"
+                >
+                  <RandomizedLight
+                    position={[2, 5, 5]}
+                    intensity={1}
+                    amount={5}
+                    radius={4}
+                    bias={0.001}
+                  />
+                </AccumulativeShadows>
+              }
             </group>
           </Suspense>
 
@@ -86,7 +88,7 @@ const App = () => {
             preset="dawn"
             background
             backgroundBlurriness={isMobile ? 0.6 : 0.9}
-            resolution={isMobile ? 256 : 512}
+            resolution={isMobile ? 64 : 512}
             lowQuality={isMobile}
           />
           {!isMobile &&
