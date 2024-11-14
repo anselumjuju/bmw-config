@@ -60,7 +60,6 @@ const App = () => {
                   alphaTest={0.2}
                   scale={7}
                   color="#000"
-                  opacity={0.7}
                 >
                   <RandomizedLight
                     position={[2, 5, 5]}
