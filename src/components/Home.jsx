@@ -4,7 +4,7 @@ import { GoMail } from "react-icons/go";
 import { LuMoveRight } from "react-icons/lu";
 import { openShare, takeScreenshot } from "../utils/functions";
 import EmailModal from "./EmailModal";
-import { useDisclosure } from "@nextui-org/react";
+import { useDisclosure } from "@heroui/react";
 import Icons from "./ui/Icons";
 import PrimaryButton from "./ui/PrimaryButton";
 
