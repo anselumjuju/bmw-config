@@ -48,34 +48,17 @@ const App = () => {
         <div className='w-full h-dvh overflow-hidden absolute inset-0 pointer-events-none z-10'>
           <Overlay />
         </div>
-        {/* <Canvas
-          gl={{ antialias: false, preserveDrawingBuffer: true }}
-          shadows={!isMobile}
-          dpr={[1, 1.5]}
-          camera={{ position: [4, 0, 6], fov: 35 }}
-        >
+        <Canvas gl={{antialias: false, preserveDrawingBuffer: true}} shadows={!isMobile} dpr={[1, 1.5]} camera={{position: [4, 0, 6], fov: 35}}>
           <Suspense fallback={<Loader />}>
             <group position={[0, -0.75, 0]}>
               <Center top>
                 <BMW />
               </Center>
-              {!isMobile &&
-                <AccumulativeShadows
-                  temporal
-                  frames={100}
-                  alphaTest={0.2}
-                  scale={7}
-                  color="#000"
-                >
-                  <RandomizedLight
-                    position={[2, 5, 5]}
-                    intensity={1}
-                    amount={5}
-                    radius={4}
-                    bias={0.001}
-                  />
+              {!isMobile && (
+                <AccumulativeShadows temporal frames={100} alphaTest={0.2} scale={7} color='#000'>
+                  <RandomizedLight position={[2, 5, 5]} intensity={1} amount={5} radius={4} bias={0.001} />
                 </AccumulativeShadows>
-              }
+              )}
             </group>
           </Suspense>
 
@@ -90,23 +73,13 @@ const App = () => {
             enablePan={false}
           />
 
-          <Environment
-            preset="dawn"
-            background
-            backgroundBlurriness={isMobile ? 0.6 : 0.9}
-            resolution={isMobile ? 64 : 512}
-            lowQuality={isMobile}
-          />
-          {!isMobile &&
+          <Environment preset='dawn' background backgroundBlurriness={isMobile ? 0.6 : 0.9} resolution={isMobile ? 64 : 512} lowQuality={isMobile} />
+          {!isMobile && (
             <EffectComposer>
-              <Bloom
-                intensity={0.05}
-                luminanceThreshold={0.2}
-                luminanceSmoothing={0.9}
-                blendFunction={BlendFunction.ADD}
-              />
-            </EffectComposer>}
-        </Canvas> */}
+              <Bloom intensity={0.05} luminanceThreshold={0.2} luminanceSmoothing={0.9} blendFunction={BlendFunction.ADD} />
+            </EffectComposer>
+          )}
+        </Canvas>
       </div>
       <ToastContainer autoClose={2000} pauseOnFocusLoss={false} />
     </>
